@@ -1,2 +1,1 @@
-# New_to_programming
-Im new to this Github
+#Teck Geek is a news website which is developed by using news API.
