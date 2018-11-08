@@ -75,83 +75,8 @@
 };
   request.send();
 }
-
-
 );
-
-
-
-function india() {
-  var request = new XMLHttpRequest();
-var url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=be294673b62f41d0a73d71d0d7dc69b2';
-const card = document.getElementById('card2');
-const card2 = document.getElementById('card');
-card2.display="none";
-request.open('GET', url, true);
-request.onload = function () {
-  var data = JSON.parse(this.response);
-  //alert(data.articles.length);
-  var k=0;
-  for(i=0;i<7;i++){
-
-    var d=document.createElement('div');
-    d.className="row";
-    for(j=1;j<=3;j++){
-
-  //    console.log(k);
-        var d1=document.createElement('div');
-        d1.className="col-md-4";
-        var d2=document.createElement('div');
-        d2.className="thumbnail";
-        var a=document.createElement('a');
-        a.href=data.articles[k].url;
-        var img=document.createElement('img');
-        img.src=data.articles[k].urlToImage;
-        var d3=document.createElement('div');
-        d3.className="caption";
-        var p=document.createElement('p');
-       p.textContent=data.articles[k].title;
-        d3.appendChild(p);
-        a.appendChild(img);
-        a.appendChild(d3);
-        d2.appendChild(a);
-        d1.appendChild(d2);
-        d.appendChild(d1);
-        card.appendChild(d);
-        k++;
-      }
-//   const p = document.createElement('p');
-//   const im = document.createElement("img");
-
-//  p.textContent=data.articles[i].description;
-//  im.src=data.articles[i].urlToImage;
-//  im.height=170;
-//  im.width=160;
-//  card.appendChild(p);
-//  card.appendChild(im);
-//  d.appendChild(d1);
-
-}
-card.appendChild(d);
-};
-request.send();
-}
-
-
-
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
 </head>
 <body style="background:#F4F7F6" >
 
@@ -184,61 +109,5 @@ request.send();
   <div class="container" id="card2" style="margin-top:50px">
   </div>
 </div>
-
-  <!-- Footer -->
-<footer class="page-footer font-small cyan darken-3">
-
-    <!-- Footer Elements -->
-    <div class="container">
-
-      <!-- Grid row-->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-12 py-5">
-          <div class="mb-5 flex-center">
-
-            <!-- Facebook -->
-            <a class="fb-ic">
-              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!-- Twitter -->
-            <a class="tw-ic">
-              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!-- Google +-->
-            <a class="gplus-ic">
-              <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Linkedin -->
-            <a class="li-ic">
-              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Instagram-->
-            <a class="ins-ic">
-              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Pinterest-->
-            <a class="pin-ic">
-              <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
-            </a>
-          </div>
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row-->
-
-    </div>
-    <!-- Footer Elements -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
 </body>
 </html>
