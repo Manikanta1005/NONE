@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TechGeek</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded",
+  function myFunction() {
+    var se=window.location.search;
+  //  alert(se);
+    var arr=se.split("=");
+    var ser=arr[arr.length-1];
+    var request = new XMLHttpRequest();
+  var url = 'https://newsapi.org/v2/everything?' +
+          'q='+ser+'&' +
+
+          'apiKey=be294673b62f41d0a73d71d0d7dc69b2';
+  const card = document.getElementById('card');
+  request.open('GET', url, true);
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    //alert(data.articles.length);
+    var k=0;
+    for(i=0;i<data.articles.length;i++){
+
+      var d=document.createElement('div');
+      d.className="row";
+      for(j=1;j<=3;j++){
+
+        console.log(k);
+          var d1=document.createElement('div');
+          d1.className="col-md-4";
+          var d2=document.createElement('div');
+          d2.className="thumbnail";
+          var a=document.createElement('a');
+          a.href=data.articles[k].url;
+          var img=document.createElement('img');
+          img.src=data.articles[k].urlToImage;
+          img.className="img-rounded";
+          var d3=document.createElement('div');
+          d3.className="caption";
+          var p=document.createElement('p');
+         p.textContent=data.articles[k].title;
+          d3.appendChild(p);
+          a.appendChild(img);
+          a.appendChild(d3);
+          d2.appendChild(a);
+          d1.appendChild(d2);
+          d.appendChild(d1);
+          card.appendChild(d);
+          k++;
+        }
+  //   const p = document.createElement('p');
+  //   const im = document.createElement("img");
+
+  //  p.textContent=data.articles[i].description;
+  //  im.src=data.articles[i].urlToImage;
+  //  im.height=170;
+  //  im.width=160;
+  //  card.appendChild(p);
+  //  card.appendChild(im);
+//  d.appendChild(d1);
+
+  }
+//  card.appendChild(d);
+};
+  request.send();
+}
+
+
+);
+
+
+
+function india() {
+  var request = new XMLHttpRequest();
+var url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=be294673b62f41d0a73d71d0d7dc69b2';
+const card = document.getElementById('card2');
+const card2 = document.getElementById('card');
+card2.display="none";
+request.open('GET', url, true);
+request.onload = function () {
+  var data = JSON.parse(this.response);
+  //alert(data.articles.length);
+  var k=0;
+  for(i=0;i<7;i++){
+
+    var d=document.createElement('div');
+    d.className="row";
+    for(j=1;j<=3;j++){
+
+      console.log(k);
+        var d1=document.createElement('div');
+        d1.className="col-md-4";
+        var d2=document.createElement('div');
+        d2.className="thumbnail";
+        var a=document.createElement('a');
+        a.href=data.articles[k].url;
+        var img=document.createElement('img');
+        img.src=data.articles[k].urlToImage;
+        var d3=document.createElement('div');
+        d3.className="caption";
+        var p=document.createElement('p');
+       p.textContent=data.articles[k].description;
+        d3.appendChild(p);
+        a.appendChild(img);
+        a.appendChild(d3);
+        d2.appendChild(a);
+        d1.appendChild(d2);
+        d.appendChild(d1);
+        card.appendChild(d);
+        k++;
+      }
+//   const p = document.createElement('p');
+//   const im = document.createElement("img");
+
+//  p.textContent=data.articles[i].description;
+//  im.src=data.articles[i].urlToImage;
+//  im.height=170;
+//  im.width=160;
+//  card.appendChild(p);
+//  card.appendChild(im);
+//  d.appendChild(d1);
+
+}
+card.appendChild(d);
+};
+request.send();
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body style="height:1500px">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">TechGeek</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="mani.html">Home</a></li>
+      <li ><a href="ai.html">ArtificialIntellegence</a></li>
+      <li><a href="block.html">BlockChain</a></li>
+      <li><a href="#">IOT</a></li>
+      <li><a onclick="india()">India</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="search.html" method="GET">
+        <div class="input-group">
+          <input type="text"  class="form-control" placeholder="Search" name="search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+  </div>
+</nav>
+
+<div class="container" id="card" style="margin-top:50px">
+  <div class="container" id="card2" style="margin-top:50px">
+
+</div>
+
+</body>
+</html>
